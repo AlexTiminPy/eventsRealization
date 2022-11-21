@@ -20,7 +20,7 @@ class Event:
         if start_performers is None:
             return
         if not self.validate_start_performers(start_performers=start_performers):
-            return
+            raise TypeError("attempt to add a non-functional object")
         if isinstance(start_performers, Event):
             self.performers = copy.deepcopy(start_performers.performers)
         elif isinstance(start_performers, list):
@@ -28,6 +28,11 @@ class Event:
 
     @staticmethod
     def validate_start_performers(start_performers: list) -> bool:
+        """
+        True if all from start_performers is callable else False
+        :param start_performers: list
+        :return: bool
+        """
         for perf in start_performers:
             if not callable(perf):
                 return False
