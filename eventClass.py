@@ -1,7 +1,3 @@
-def aaa():
-    return 5
-
-
 class Event:
     """
     you must use callable object without any returned value
@@ -62,6 +58,3 @@ class Event:
             perf()
         self.performers = []
 
-
-ev = Event()
-ev += aaa
