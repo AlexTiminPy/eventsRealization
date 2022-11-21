@@ -14,18 +14,22 @@ class Event:
         self.performers = []
 
     def __add__(self, func):
-        self.add_event(func=func)
+        self.add_performer(func=func)
+        return self
 
     def __iadd__(self, func):
-        self.add_event(func=func)
+        self.add_performer(func=func)
+        return self
 
     def __sub__(self, func):
         self.del_event(func=func)
+        return self
 
     def __isub__(self, func):
         self.del_event(func=func)
+        return self
 
-    def add_event(self, func):
+    def add_performer(self, func):
         if not callable(func):
             raise TypeError("attempt to add a non-functional object")
         self.performers.append(func)
@@ -57,4 +61,3 @@ class Event:
         for perf in self.performers:
             perf()
         self.performers = []
-
