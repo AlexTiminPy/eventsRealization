@@ -20,7 +20,9 @@ ev += a
 assert len(ev.performers) == 1
 ev -= a
 assert len(ev.performers) == 0
-ev += a
+ev + a
+ev - a
+ev + a
 ev += b
 ev += c
 assert len(ev.performers) == 3
