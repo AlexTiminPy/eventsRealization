@@ -22,11 +22,11 @@ class Event:
         return self
 
     def __sub__(self, func):
-        self.del_event(func=func)
+        self.del_performer(func=func)
         return self
 
     def __isub__(self, func):
-        self.del_event(func=func)
+        self.del_performer(func=func)
         return self
 
     def add_performer(self, func):
@@ -34,7 +34,7 @@ class Event:
             raise TypeError("attempt to add a non-functional object")
         self.performers.append(func)
 
-    def del_event(self, func):
+    def del_performer(self, func):
         if func not in self.performers:
             raise NameError("no such object found")
         self.performers.remove(func)
