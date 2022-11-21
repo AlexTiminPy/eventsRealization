@@ -45,9 +45,8 @@ class Event:
         self.performers[0]()
 
     def activate_next_with_clear(self):
-        if not self.performers:
-            raise IndexError("no performer found")
-        self.performers.pop(0)()
+        self.activate_next()
+        self.performers.pop(0)
 
     def activate_all(self):
         if not self.performers:
@@ -56,8 +55,5 @@ class Event:
             perf()
 
     def activate_all_with_clear(self):
-        if not self.performers:
-            raise IndexError("no any performers found")
-        for perf in self.performers:
-            perf()
+        self.activate_all()
         self.performers = []
