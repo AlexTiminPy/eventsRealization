@@ -16,13 +16,19 @@ class Event:
     """
 
     def __init__(self, start_performers: Union[Self, list] = None) -> Self:
+        """
+        create with hollow and copy init method
+        :param start_performers: Union[Self, list]
+        """
         self.performers = []
         if start_performers is None:
             return
         if not self.validate_start_performers(start_performers=start_performers):
             raise TypeError("attempt to add a non-functional object")
+
         if isinstance(start_performers, Event):
             self.performers = copy.deepcopy(start_performers.performers)
+
         elif isinstance(start_performers, list):
             self.performers = copy.deepcopy(start_performers)
 
